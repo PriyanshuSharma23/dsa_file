@@ -25,8 +25,7 @@ void push(stack *S, int x)
     S->top += 1;
 }
 
-
-void pop(stack *S) 
+void pop(stack *S)
 {
     if (S->top == 0)
     {
@@ -50,10 +49,49 @@ void display(stack *S)
     printf("\n");
 }
 
-
-
-
 int main()
 {
+
+    stack S = {.arr = {0}, .max_size = 100, .top = 0};
+
+    printf("Welcome to Stack!\n");
+
+    while (1)
+    {
+        printf("1) Push\n");
+        printf("2) Pop\n");
+        printf("3) Display\n");
+        printf("4) Exit\n");
+
+        int choice;
+        scanf("%d", &choice);
+
+        if (choice == 1)
+        {
+            int x;
+            printf("Enter the element to push: ");
+            scanf("%d", &x);
+            push(&S, x);
+        }
+        else if (choice == 2)
+        {
+            pop(&S);
+        }
+        else if (choice == 3)
+        {
+            display(&S);
+        }
+        else if (choice == 4)
+        {
+            printf("Goodbye!\n");
+            break;
+        }
+        else
+        {
+            printf("Invalid choice!\n");
+        }
+    }
+    
+
     return 0;
 }
